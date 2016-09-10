@@ -1,0 +1,79 @@
+DROP DATABASE `shopMFY`;
+CREATE DATABASE IF NOT EXISTS `shopMFY`;
+USE `shopMFY`;
+-- 管理员表 --
+DROP TABLE IF EXISTS `MFY_admin`;
+CREATE TABLE `MFY_admin`(
+id tinyint unsigned auto_increment key,
+userName varchar(20) not null unique,
+passWord char(32) not null,
+email varchar(50) not null
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- 分类表  --
+DROP TABLE IF EXISTS `MFY_cate`;
+CREATE TABLE `MFY_cate`(
+`id` smallint(5) unsigned auto_increment key,
+`cName` varchar(50) unique
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- 商品表 --
+DROP TABLE IF EXISTS `MFY_pro`;
+CREATE TABLE `MFY_pro`(
+`id` int unsigned auto_increment key,
+`pName` varchar(50) not null unique,
+`pSn` varchar(50) not null,
+`pNum` int unsigned default 1,
+`mPrice` decimal(10,2) not null,
+`iPrice` decimal(10,2) not null,
+`pDesc` text,
+`pImg` varchar(50) not null,
+`pubTime` int unsigned not null,
+`isShow` tinyint(1) default 1,
+`isHot`tinyint(1) default 0,
+`cId` smallint unsigned not null
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- 用户表 --
+DROP TABLE IF EXISTS `MFY_user`;
+CREATE TABLE `MFY_user`(
+`id` int unsigned auto_increment key,
+`usename` varchar(20) not null unique,
+`password` char(32) not null,
+`sex` enum("保密","男","女") not null ,
+`face` varchar(50) not null ,
+`regTime` int unsigned not null
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- 相册表 --
+DROP TABLE IF EXISTS `MFY_album`;
+CREATE TABLE`MFY_album`(
+`id` int unsigned auto_increment key,
+`pid` int unsigned not null,
+`albumPath` varchar(50) not null
+)ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
